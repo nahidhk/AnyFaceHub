@@ -23,21 +23,7 @@ htmlspecialchars($row['email'])
 
 
 
---  save the photo this databases and create a tabel 
-CREATE TABLE photos (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL,
-    userid VARCHAR(10) NOT NULL,  -- Data type corrected
-    location VARCHAR(100) NOT NULL,
-    photo VARCHAR(200) NOT NULL,
-    ip VARCHAR(20) NOT NULL,
-    verifay VARCHAR(40) NOT NULL,
-    device VARCHAR(20) NOT NULL,
-    title VARCHAR(100) NOT NULL,
-    mydate VARCHAR(20) NOT NULL,
-    userimg VARCHAR(200) NOT NULL,
-    uploaded TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+
 
 -- saved the Delete photo
 CREATE TABLE delete (

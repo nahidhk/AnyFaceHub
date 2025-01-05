@@ -38,8 +38,6 @@ function checkverfy() {
   }
 }
 
-
- 
 function logout(){
   localStorage.clear();
   sessionStorage.clear();
@@ -52,3 +50,20 @@ function home(){
 function myapple(){
   window.location.href='photos/?id=$id'
 }
+
+function myexfunction(){
+  const trim1 = document.getElementById("trim1");
+  const trim2 = document.getElementById("trim2");
+  const documentwith = window.innerWidth;
+  console.log(documentwith);
+  
+  if (documentwith > 768) {
+    trim1.classList = "flex anaround";
+    trim2.classList = "flex";
+  } else {
+    trim1.classList = " ";
+    trim2.classList = " ";
+  }
+
+}
+myexfunction()

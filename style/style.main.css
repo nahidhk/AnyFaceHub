@@ -42,14 +42,15 @@ body {
   backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
+  z-index: 400;
 }
 .navtext{
   background-color: #0091ff;
   color: #fff;
   padding-left: 9px;
   padding-right: 9px;
-  border-top-right-radius: 100px;
-  border-bottom-left-radius: 100px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 .navtext, .navtext img {
   height: 40px;
@@ -168,6 +169,7 @@ background-image: url("/img/pen.png");
   color: #fff;
   border: none;
   font-family: juthi;
+  cursor: pointer;
 }
 .button-box {
   width: 100%;
@@ -336,10 +338,10 @@ input {
 }
 
 .myimgproo{
- height: 180px;
- width: 180px;
+ height: 300px;
+ width: 300px;
  border: 1px solid #4680ff;
- border-radius: 100px;
+ border-radius: 300px;
 }
 
 .myimgproo1{
@@ -515,7 +517,45 @@ input {
   z-index: 999;
   background-color: #f4f4f694;
 }
+.flex{
+  display: flex;
+}
+.anaround{
+  justify-content: space-around;
+}
+.mainbox{
+  width: 80%;
+  height: auto;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+}
+.nomargin{
+  margin: 0;
+}
+.wxl{
+  width: 100%;
+}
+.icon{
+  font-size: 13pt;    
+}
+.lowcas{
+  color: #b0b0b0;
+}
+.margin{
+  margin: 10px;
+}
+.ifrm{
+  height: auto;
+  width: 80%;
+}
 @media (max-width: 768px) {
+  .mainbox{
+    width: 95%;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+  }
   .sendfile{
     width: 100%;
   }
