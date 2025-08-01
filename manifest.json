@@ -1,0 +1,15 @@
+{
+    "name": "AnyFace",
+    "short_name": "AnyFace",
+    "icons": [
+      {
+        "src": "img/icon.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      }
+    ],
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#fff",
+    "theme_color": "#fff"
+  }

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="manifest" href="manifest.json">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="/style/style.main.css?v=1.0.1" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AnyFace</title>
+  </head>
+  <body onscroll="closepopup()">
+    <!-- app dowonload aa -->
+    <div id="rooting"></div>
+ <!-- mobile app -->
+  <div class="naver">
+    <span class="navtext mbicon"><img src="img/icon.png" /></span> 
+  </div>
+    <div class="animate__slideInDown animate__animated nav" >
+      <!-- nav photo -->
+      <span onclick="anydart()" class="navtext mbtext">
+        <img src="img/logo.png" />
+      </span>
+      <!-- nav photo end -->
+      <div class="button-box">
+        <button
+          id="photobtn"
+          onclick="openthephotobox(); linkclick()"
+          class="systembtn active"
+        >
+     <span class="mbicon"><i id="photoicon1" class="fa-fade fa-images fa-regular"></i></span>
+      <span class="mbtext"> <i id="photoicon2" class="fa-regular fa-images fa-fade"></i>  Photo</span>
+        </button>
+        <button
+          id="videobtn"
+          onclick="openthevideobox(); linkclick()"
+          class="systembtn noactive"
+        > 
+        <span class="mbicon"><i id="videoicon1" class="fa-solid fa-video"></i></span>
+           <span class="mbtext"> <i id="videoicon2" class="fa-solid fa-video"></i> Video</span>
+        </button>
+        <button onclick="systemserch()" class="systembtn navbtn mbicon">
+          <span class="mbicon">
+            <i class="bi bi-search"></i>
+          </span>
+        </button>
+        <button onclick="uploadphoto()" class="systembtn navbtn">
+          <span class="mbicon"> <i class="bi bi-upload"></i></span>
+          <span class="mbtext"><i class="bi bi-upload"></i> Upload</span>
+        </button>
+        <button
+          onclick="userlistopensystemtop()"
+          class="systembtn navbtn mbicon"
+        >
+          <span class="mbicon">
+            <i class="bi bi-sliders2"></i>
+          </span>
+        </button>
+      </div>
+    </div>
+    <!-- menu system mobile -->
+    <div id="myappjstoopenuserlist" class="vcc">
+        <button onclick="colesthemenulist()" class="closebtn">
+          <i class="bi bi-arrow-left"></i>
+        </button>
+        <blockquote>
+          <h3>Setting</h3><hr>
+          <div id="menushow1"></div>
+        </blockquote>
+      <div class="skty">
+      <blockquote>
+        <h3>Top User</h3><hr>
+        </blockquote>
+        </div>
+        <blockquote>
+      <div class="topuser">
+      </div>
+    </blockquote>
+    </div>
+    </div>
+    <br />
+    <center>
+      <input
+        oninput="searchData()"
+        type="search"
+        id="search2"
+        class="search vcc"
+        placeholder="Search by Your Name"
+      />
+    </center>
+    
+      <div class="sidemain left">
+        <blockquote>
+          <h2>Setting</h2>
+          <hr />
+            <div id="menushow2"></div>
+        </blockquote>
+      </div>
+      <section class="maincontect">
+      <div class="main">
+        <!-- the load js -->
+         <div class="photo">
+          <div onclick="accountprofile()" class="user">
+            <img id="userimgtop" class="userimg">
+            <p class="username">&nbsp;&nbsp;&nbsp;<b><span id="showthemyname"></span></b></p>
+          </div>
+          <center>
+          <div class="aptmain"> 
+            <a class="a" href="/upload/photo/"><i class="fa-regular fa-image"></i></a>
+            <a class="a" href="/upload/video/"><i class="fa-solid fa-video"></i></a>
+          </div>
+        </center>
+         </div>
+        <div id="app"></div>
+        <div id="videoapp"></div>
+      </div>
+    </section>
+      <div class="sidemain bright">
+        <div class="searchbox">
+          <h2>Search By Profile name</h2>
+          <input
+            oninput="searchData()"
+            type="search"
+            id="search1"
+            class="search"
+            placeholder="Search by Your Name"
+          />
+          <center>
+            <small>
+              Search the profile name and show this profile photo and video !
+            </small>
+          </center>
+        </div>
+        <blockquote>
+          <h2>Top Post User</h2>
+          <hr />
+          <div class="userlist">
+            <div class="topuser2"></div>
+          </div>
+        </blockquote>
+      </div>
+   
+    <script src="javascript/login.js"></script>
+    <script src="javascript/script.js"></script>
+    <script src="javascript/video.js"></script>
+    <script src="javascript/topuser.js"></script>
+    <script src="javascript/components/mongodb.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  </body>
+</html>
+
+<!-- Update with Request in the Next Day -->

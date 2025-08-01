@@ -1,0 +1,7 @@
+<IfModule mod_headers.c>
+    # Disable caching for all files
+    <FilesMatch "\.(html|css|js|jpg|png)$">
+        Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+    </FilesMatch>
+</IfModule>
+

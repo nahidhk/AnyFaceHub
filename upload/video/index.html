@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/style/style.main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnyFace</title>
+</head>
+
+<div class="nav">
+    <span class="navtext"><img src="/icon.png" alt=""></span>
+    <div class="button-box">
+        <button onclick="photofolder()" class="systembtn active"> 
+            <span class="mbicon">
+                <i class="fa-regular fa-image"></i>
+            </span>
+            <span class="mbtext">Photos</span>
+        </button>
+        <button onclick="videofolder()" class="systembtn noactive">
+            <span class="mbicon">
+                <i class="fa-solid fa-film"></i>
+            </span>
+            <span class="mbtext">Videos</span>
+        </button>
+        <button onclick="homeapp()" class="systembtn navbtn">
+            <span class="mbicon">
+                <i class="fa-solid fa-house"></i>
+            </span>
+            <span class="mbtext"><i class="fa-solid fa-house"></i> Home</span>
+        </button>
+    </div>
+</div>
+    <div id="showupphoto" class="maincontect">
+        <div class="main">
+            <h1>
+                Upload Your Photo
+            </h1>
+            <div class="photo">
+                <div class="user">
+                    <img id="showmyimg" class="userimg">
+                    <p><b> &nbsp;&nbsp;&nbsp;<span id="usernameshow"></span></b></p>
+                </div>
+                <form onsubmit="openupload()" action="/databases/upvideo.php" method="post" enctype="multipart/form-data">
+                    <input class="dateshow" name="date" id="dateshowboxUp" type="text" required>
+                    <input class="false" type="text" name="verifay" id="myverifayionet" required>
+                    <input name="ip" type="text" class="false" id="ip" required>
+                    <input name="location" type="text" class="false" id="location" required>
+                    <input name="dvc" type="text" class="false" id="dvc" required>
+                    <input id="nameuser" type="text" class="false" name="userid" required>
+                    <br><br>
+                    
+                    <textarea class="titlehere" name="title" placeholder="Title Here..."></textarea>
+                
+                    <div id="filesetok">
+                        <center>
+                            <label class="custom-file-upload" for="videofa">
+                                <i class="bi bi-upload upicon"></i><br> Drop & Select Your video
+                            </label>
+                            <input aria-describedby="upload photo" oninput="showvideofx()" type="file" name="video" id="videofa" required accept="video/*">
+                        </center>
+                    </div>
+                    
+                 
+                    
+                    <center>
+                        <button type="submit" id="uploadbtn" class="btn systembtn">
+                            <i class="bi bi-upload"></i> Upload
+                        </button>
+                    </center>
+                </form>
+                
+        </div>
+    </div>
+</div>
+    <!-- =========================================================upload and the video =============== -->
+    
+    <br><br>
+    <center>
+        code By 🩵 <a href="https://github.com/nahidhk">anyface</a>
+    </center>
+   
+    <script src="/javascript/upload.js"></script>
+    <script src="/javascript/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>
