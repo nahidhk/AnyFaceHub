@@ -32,17 +32,12 @@ function prevStep() {
     document.getElementById("step2").style.display = "none"
     document.getElementById("step1").style.display = "block"
 }
-function sendRequest() {
-    const phoneoremail = document.getElementsByName("phoneoremail")[0];
-    const password = document.getElementsByName("password")[0];
-    if (phoneoremail.value === "" || password.value === "") {
-        const errorNote = "Please fill in all fields."
-        document.getElementById("error").innerText = errorNote;
-    } else if (password.value !== confirmPassword.value) {
-        const errorNote = "Passwords do not match."
-        document.getElementById("error").innerText = errorNote;
+
+document.getElementById("show-password").addEventListener("change", function () {
+    const passwordInput = document.querySelector('input[name="password"]');
+    if (this.checked) {
+        passwordInput.type = "text";
     } else {
-        // Send the request to create the account
-        alert("Account created successfully!");
+        passwordInput.type = "password";
     }
-}
+});

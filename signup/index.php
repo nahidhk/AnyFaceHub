@@ -14,7 +14,7 @@
             <p>It's quick and easy.</p>
             <hr>
             <br>
-            <form action="" method="post">
+            <form action="/signup/create_account.php" method="post">
                 <div id="step1" class="">
                     <div class="flex">
                         <input type="text" class="input" name="FullName" placeholder="Full Name" required>
@@ -48,7 +48,7 @@
                             required>
                     </div>
                     <div class="flex">
-                        <input type="password" class="input" name="FullName" placeholder="A new password" required>
+                        <input type="password" class="input" name="password" placeholder="A new password" required>
                         <div class="show-password">
                             <input type="checkbox" name="show-password" id="show-password">
                         </div>
@@ -60,7 +60,7 @@
                                 
                             </button>
 
-                            <button id="nxtBtn" onclick="sendRequest()" class="btn" type="button">
+                            <button id="nxtBtn" onclick="sendRequest()" class="btn" type="submit">
                                 Create Account
                                 <i class="icon bi bi-arrow-right-short"></i>
                             </button>
