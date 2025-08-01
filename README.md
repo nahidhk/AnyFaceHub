@@ -1,4 +1,4 @@
-# AnyFaceHub: A New Era of Media Wiki
+# AnyFaceHub: A New of Media Wiki
 
 ## Introduction
 
