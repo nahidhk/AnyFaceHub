@@ -1,5 +1,7 @@
 <?php
 require_once('../php/config.php');
+require_once '../vendor/autoload.php';
+use Detection\MobileDetect;
 
 // Input Collection
 $fullName = $_POST['FullName'] ?? '';
@@ -15,34 +17,31 @@ $username = preg_replace('/[^a-z0-9_]/', '', $username);
 $username .= rand(100, 999);
 
 // Phone or Email validation
+$email = '';
+$phonenum = '';
+
 if (empty($phoneOrEmail)) {
-    echo "Error: ফোন নম্বর বা ইমেইল দিতে হবে।";
+    echo "❌ Error: ফোন নম্বর বা ইমেইল দিতে হবে।";
     exit;
 } elseif (filter_var($phoneOrEmail, FILTER_VALIDATE_EMAIL)) {
-    echo "ইমেইল ভ্যালিড।<br>"; // এখানে <br> যোগ করলাম
+    $email = $phoneOrEmail;
+    echo "✅ ইমেইল ভ্যালিড।<br>";
 } elseif (preg_match('/^\+?[0-9]{10,15}$/', $phoneOrEmail)) {
-    echo "ফোন নম্বর ভ্যালিড।<br>";
+    $phonenum = preg_replace('/\D/', '', $phoneOrEmail);
+    echo "✅ ফোন নম্বর ভ্যালিড।<br>";
 } else {
-    echo "ইমেইল বা ফোন নম্বর সঠিক নয়।";
+    echo "❌ ইমেইল বা ফোন নম্বর সঠিক নয়।";
     exit;
 }
 
-
 // Device detection
-require_once '../vendor/autoload.php';
-use Detection\MobileDetect;
-
 $detect = new MobileDetect;
+$deviceType = $detect->isTablet() ? 'Tablet' : ($detect->isMobile() ? 'Mobile' : 'Desktop');
 
-if ($detect->isMobile()) {
-    $deviceType = "Mobile";
-} elseif ($detect->isTablet()) {
-    $deviceType = "Tablet";
-} else {
-    $deviceType = "Desktop";
-}
+// User Agent
+$userAgent = $_SERVER['HTTP_USER_AGENT'] ?? 'unknown';
 
-// User Agent based OS & Browser detect
+// OS detect
 function detectOS($userAgent) {
     $osArray = [
         '/windows nt 10/i' => 'Windows 10',
@@ -57,6 +56,7 @@ function detectOS($userAgent) {
     return 'Unknown OS';
 }
 
+// Browser detect
 function detectBrowser($userAgent) {
     $browserArray = [
         '/msie/i' => 'Internet Explorer',
@@ -72,18 +72,31 @@ function detectBrowser($userAgent) {
     return 'Unknown Browser';
 }
 
-$userAgent = $_SERVER['HTTP_USER_AGENT'];
+$os = detectOS($userAgent);
+$browser = detectBrowser($userAgent);
+$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-echo "<br>OS: " . detectOS($userAgent);
-echo "<br>Browser: " . detectBrowser($userAgent) . "<br><br>";
+// Current Timestamp
+$createdAt = $updatedAt = date('Y-m-d');
 
-// Final Output
-echo "Full Name: $fullName <br>";
-echo "Date of Birth: $dateOfBirth <br>";
-echo "Gender: $gender <br>";
-echo "Phone or Email: $phoneOrEmail <br>";
-echo "Password: $password <br>";
-echo "Username: $username <br>";
-echo "<br>Device Type: $deviceType <br>";
-echo "User Agent: $userAgent <br>";
+
+// SQL INSERT
+$stmt = $conn->prepare("INSERT INTO users (
+    full_name, date_of_birth, gender, phone_or_email, password, username,
+    phone_number, email, os, browser, device_type, created_at, updated_at
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+$stmt->bind_param("sssssssssssss", $fullName, $dateOfBirth, $gender, $phoneOrEmail, $hashedPassword,
+$username, $phonenum, $email, $os, $browser, $deviceType, $createdAt, $updatedAt);
+
+if ($stmt->execute()) {
+    // call profile 
+    header("Location: /af/$username");
+   
+} else {
+    echo "<br><br>❌ Error inserting data: " . $stmt->error;
+}
+
+$stmt->close();
+$conn->close();
 ?>
